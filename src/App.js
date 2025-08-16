@@ -2,26 +2,25 @@
 import './App.css';
 import { useState } from 'react';
 
-function App(){
-  
-    const [firstName ,setFirstName] = useState("");
-    const[lastName, setLastName] = useState("");
-    const[fullName,setFullName] = useState("");
+function App() {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [fullName, setFullName] = useState("");
 
-    const handleSubmit = (e) =>{
-      e.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-      if (firstName.trim()!== "" && lastName.trim()!==""){
+    if (firstName.trim() !== "" && lastName.trim() !== "") {
       setFullName(`Full Name: ${firstName} ${lastName}`);
-      }
-      else
-      {
-        setFullName("");
+    } else {
+      setFullName("");
+    }
+  };
 
-      }
-    };
-    return (
+  return (
     <div>
+      <h1>Full Name Display</h1> 
+
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="firstName">First Name:</label>
@@ -46,11 +45,9 @@ function App(){
         <button type="submit">Submit</button>
       </form>
 
-      
       {fullName && <p>{fullName}</p>}
     </div>
   );
-};
-
+}
 
 export default App;
